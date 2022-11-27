@@ -17,6 +17,22 @@ const client = new MongoClient(uri, {
   serverApi: ServerApiVersion.v1,
 });
 
+async function run() {
+    const categoriesCollection = client.db('phonesDotCom').collection('categories');
+    try {
+        app.get('/categories', async (req, res) => {
+            const query = {};
+            const cursor = categoriesCollection.find(query);
+            const categories = await cursor.toArray();
+            res.send(categories)
+        })
+    }
+    catch {
+        
+    }
+}
+run().catch(error => console.error(error));
+
 
 
 
