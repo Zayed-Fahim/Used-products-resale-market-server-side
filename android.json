@@ -1,0 +1,67 @@
+[
+  {
+    "category_id": 1,
+    "brand": "Samsung ",
+    "original_price": "1099.00",
+    "resale_price": "999.00",
+    "phone_name": "Galaxy Z Fold3 5G",
+    "location": "Dhanmondi-32,Dhaka",
+    "year_of_use": "6 months",
+    "seller_name": "Sakib Khan",
+    "verified": false,
+    "slug": "samsung_galaxy_z_fold3_5g-10906",
+    "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-fold3-5g.jpg"
+  },
+  {
+    "category_id": 1,
+    "brand": "Xiaomi",
+    "original_price": "999.00",
+    "resale_price": "899.00",
+    "phone_name": "Xiaomi 12S Ultra",
+    "location": "Mirpur-1,Dhaka",
+    "year_of_use": "4 months",
+    "seller_name": "Zayed Khan",
+    "verified": true,
+    "slug": "xiaomi_12s_ultra-12596",
+    "image": "https://fdn2.gsmarena.com/vv/bigpic/xiaomi-12s-ultra.jpg"
+  },
+  {
+    "category_id": 1,
+    "brand": "One Plus",
+    "original_price": "499.00",
+    "resale_price": "399.00",
+    "phone_name": "OnePlus 10 Pro",
+    "location": "Zigatola,Dhanmondi,Dhaka",
+    "year_of_use": "8 months",
+    "seller_name": "Sadik Hasan",
+    "verified": true,
+    "slug": "onePlus_10_pro-11296",
+    "image": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-10-pro.jpg"
+  },
+  {
+    "category_id": 1,
+    "brand": "Samsung ",
+    "original_price": "429.00",
+    "resale_price": "349.00",
+    "phone_name": "Galaxy S21 Ultra 5G",
+    "location": "Mohammadpur,Dhaka",
+    "year_of_use": "5 months",
+    "seller_name": "Bappi Khan",
+    "verified": false,
+    "slug": "samsung_galaxy_s21_ultra_5g-10596",
+    "image": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s21-ultra-5g-.jpg"
+  },
+  {
+    "category_id": 1,
+    "brand": "OPPO",
+    "original_price": "349.00",
+    "resale_price": "299.00",
+    "phone_name": "Oppo Reno9",
+    "location": "Uttara,Dhaka",
+    "year_of_use": "12 months",
+    "seller_name": "Bappa Raj",
+    "verified": true,
+    "slug": "oppo_reno9-12596",
+    "image": "https://fdn2.gsmarena.com/vv/bigpic/oppo-reno9.jpg"
+  }
+]

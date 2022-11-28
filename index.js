@@ -16,9 +16,10 @@ const client = new MongoClient(uri, {
 });
 
 async function run() {
-  const categoriesCollection = client
-    .db("phonesDotCom")
-    .collection("categories");
+  const categoriesCollection = client.db("phonesDotCom").collection("categories");
+  const androidsCollection = client.db("phonesDotCom").collection("androids");
+  const iphonesCollection = client.db("phonesDotCom").collection("iphones");
+  const tabletIpadsCollection = client.db("phonesDotCom").collection("tablet-ipads");
   try {
     app.get("/categories", async (req, res) => {
       const query = {};
@@ -26,13 +27,30 @@ async function run() {
       const categories = await cursor.toArray();
       res.send(categories);
     });
-    app.get('/categories/:id', async (req, res) => {
-      const id = req.params.id;
-      const query = { _id: ObjectId(id) };
+    app.get('/categories/:_name', async (req, res) => {
+      const _name = req.params._name;
+      const query = { _name };
       const category = await categoriesCollection.findOne(query);
       res.send(category);
-
-    })
+    });
+    app.get("/androids", async (req, res) => {
+      const query = {};
+      const cursor = androidsCollection.find(query);
+      const androids = await cursor.toArray();
+      res.send(androids)
+    });
+    app.get("/iphones", async (req, res) => {
+      const query = {};
+      const cursor = iphonesCollection.find(query);
+      const iphones = await cursor.toArray();
+      res.send(iphones);
+    });
+    app.get("/tablet-ipads", async (req, res) => {
+      const query = {};
+      const cursor = tabletIpadsCollection.find(query);
+      const tabletIpads = await cursor.toArray();
+      res.send(tabletIpads);
+    });
   } catch {
     
   }
