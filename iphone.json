@@ -1,6 +1,7 @@
 [
   {
     "category_id": 2,
+    "category_name": "iPhone",
     "brand": "Apple ",
     "original_price": "499.00",
     "resale_price": "424.00",
@@ -14,6 +15,7 @@
   },
   {
     "category_id": 2,
+    "category_name": "iPhone",
     "brand": "Apple ",
     "original_price": "854.00",
     "resale_price": "754.00",
@@ -27,6 +29,7 @@
   },
   {
     "category_id": 2,
+    "category_name": "iPhone",
     "brand": "Apple ",
     "original_price": "949.00",
     "resale_price": "849.00",
@@ -40,6 +43,7 @@
   },
   {
     "category_id": 2,
+    "category_name": "iPhone",
     "brand": "Apple ",
     "original_price": "649.00",
     "resale_price": "599.00",
@@ -53,6 +57,7 @@
   },
   {
     "category_id": 2,
+    "category_name": "iPhone",
     "brand": "Apple ",
     "original_price": "849.00",
     "resale_price": "749.00",
@@ -66,6 +71,7 @@
   },
   {
     "category_id": 2,
+    "category_name": "iPhone",
     "brand": "Apple ",
     "original_price": "799.00",
     "resale_price": "699.00",
@@ -79,6 +85,7 @@
   },
   {
     "category_id": 2,
+    "category_name": "iPhone",
     "brand": "Apple ",
     "original_price": "649.00",
     "resale_price": "599.00",
@@ -92,6 +99,7 @@
   },
   {
     "category_id": 2,
+    "category_name": "iPhone",
     "brand": "Apple ",
     "original_price": "599.00",
     "resale_price": "549.00",
@@ -105,6 +113,7 @@
   },
   {
     "category_id": 2,
+    "category_name": "iPhone",
     "brand": "Apple ",
     "original_price": "799.00",
     "resale_price": "700.00",
@@ -118,6 +127,7 @@
   },
   {
     "category_id": 2,
+    "category_name": "iPhone",
     "brand": "Apple ",
     "original_price": "649.00",
     "resale_price": "599.00",
@@ -131,6 +141,7 @@
   },
   {
     "category_id": 2,
+    "category_name": "iPhone",
     "brand": "Apple ",
     "original_price": "599.00",
     "resale_price": "549.00",

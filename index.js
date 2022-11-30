@@ -20,6 +20,8 @@ async function run() {
   const androidsCollection = client.db("phonesDotCom").collection("androids");
   const iphonesCollection = client.db("phonesDotCom").collection("iphones");
   const tabletIpadsCollection = client.db("phonesDotCom").collection("tablet-ipads");
+  const bookingsCollection = client.db("phonesDotCom").collection("bookings");
+  const usersCollection = client.db("phonesDotCom").collection("users");
   try {
     app.get("/categories", async (req, res) => {
       const query = {};
@@ -27,7 +29,7 @@ async function run() {
       const categories = await cursor.toArray();
       res.send(categories);
     });
-    app.get('/categories/:_name', async (req, res) => {
+    app.get("/categories/:_name", async (req, res) => {
       const _name = req.params._name;
       const query = { _name };
       const category = await categoriesCollection.findOne(query);
@@ -37,7 +39,7 @@ async function run() {
       const query = {};
       const cursor = androidsCollection.find(query);
       const androids = await cursor.toArray();
-      res.send(androids)
+      res.send(androids);
     });
     app.get("/iphones", async (req, res) => {
       const query = {};
@@ -51,9 +53,24 @@ async function run() {
       const tabletIpads = await cursor.toArray();
       res.send(tabletIpads);
     });
-  } catch {
-    
-  }
+    app.post("/bookings", async (req, res) => {
+      const booking = req.body;
+      const result = await bookingsCollection.insertOne(booking);
+      res.send(result);
+    });
+    app.get('/bookings', async (req, res) => {
+      const email = req.query.email;
+      console.log(email)
+      const query = { buyer_email: email };
+      const bookings = await bookingsCollection.find(query).toArray();
+      res.send(bookings)
+    });
+    app.post('/users', async (req, res) => {
+      const user = req.body;
+      const result = await usersCollection.insertOne(user);
+      res.send(result);
+    })
+  } catch {}
 }
 run().catch((error) => console.error(error));
 

@@ -1,6 +1,7 @@
 [
   {
     "category_id": 1,
+    "category_name":"Android",
     "brand": "Samsung ",
     "original_price": "1099.00",
     "resale_price": "999.00",
@@ -14,6 +15,7 @@
   },
   {
     "category_id": 1,
+    "category_name": "Android",
     "brand": "Xiaomi",
     "original_price": "999.00",
     "resale_price": "899.00",
@@ -27,6 +29,7 @@
   },
   {
     "category_id": 1,
+    "category_name": "Android",
     "brand": "One Plus",
     "original_price": "499.00",
     "resale_price": "399.00",
@@ -40,6 +43,7 @@
   },
   {
     "category_id": 1,
+    "category_name": "Android",
     "brand": "Samsung ",
     "original_price": "429.00",
     "resale_price": "349.00",
@@ -53,6 +57,7 @@
   },
   {
     "category_id": 1,
+    "category_name": "Android",
     "brand": "OPPO",
     "original_price": "349.00",
     "resale_price": "299.00",
