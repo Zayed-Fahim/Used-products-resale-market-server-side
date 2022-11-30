@@ -3,6 +3,7 @@ const cors = require("cors");
 const app = express();
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 require("dotenv").config();
+const jwt = require("jsonwebtoken");
 const port = process.env.PORT || 5000;
 
 app.use(cors());
@@ -15,11 +16,30 @@ const client = new MongoClient(uri, {
   serverApi: ServerApiVersion.v1,
 });
 
+const verifyJWT = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader) {
+    return res.status(401).send("Unauthorized access")
+  }
+  const token = authHeader.split(' ')[1];
+  jwt.verify(token, process.env.ACCESS_TOKEN, (error, decoded) => {
+    if (error) {
+      return res.status(403).send({message: "forbidden access"})
+    }
+    req.decoded = decoded;
+    next();
+  })
+}
+
 async function run() {
-  const categoriesCollection = client.db("phonesDotCom").collection("categories");
+  const categoriesCollection = client
+    .db("phonesDotCom")
+    .collection("categories");
   const androidsCollection = client.db("phonesDotCom").collection("androids");
   const iphonesCollection = client.db("phonesDotCom").collection("iphones");
-  const tabletIpadsCollection = client.db("phonesDotCom").collection("tablet-ipads");
+  const tabletIpadsCollection = client
+    .db("phonesDotCom")
+    .collection("tablet-ipads");
   const bookingsCollection = client.db("phonesDotCom").collection("bookings");
   const usersCollection = client.db("phonesDotCom").collection("users");
   try {
@@ -58,18 +78,31 @@ async function run() {
       const result = await bookingsCollection.insertOne(booking);
       res.send(result);
     });
-    app.get('/bookings', async (req, res) => {
+    app.get("/bookings", verifyJWT, async (req, res) => {
       const email = req.query.email;
-      console.log(email)
+      const decodedEmail = req.decoded.email;
+      if (email !== decodedEmail) {
+        return res.status(403).send({message: "forbidden access"})
+      }
       const query = { buyer_email: email };
       const bookings = await bookingsCollection.find(query).toArray();
-      res.send(bookings)
+      res.send(bookings);
     });
-    app.post('/users', async (req, res) => {
+    app.get("/jwt", async (req, res) => {
+      const email = req.query.email;
+      const query = { email: email };
+      const user = await usersCollection.findOne(query);
+      if (user) {
+        const token = jwt.sign({ email }, process.env.ACCESS_TOKEN, { expiresIn: '1h' });
+        res.send({accessToken: token})
+      }
+      res.status(403).send({accessToken:null});
+    });
+    app.post("/users", async (req, res) => {
       const user = req.body;
       const result = await usersCollection.insertOne(user);
       res.send(result);
-    })
+    });
   } catch {}
 }
 run().catch((error) => console.error(error));
